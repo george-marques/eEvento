@@ -58,11 +58,11 @@ namespace eEvento
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "381891725087-ng8t26pi2moflph6dvs66cpljmt2m23u.apps.googleusercontent.com",
+                ClientSecret = "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"
+            });
         }
     }
 }
