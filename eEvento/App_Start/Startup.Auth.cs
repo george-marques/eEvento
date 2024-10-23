@@ -54,9 +54,9 @@ namespace eEvento
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "950217316938640",
+               appSecret: "8d9699d041d5a0bbc1165aa5f1f587e1");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
