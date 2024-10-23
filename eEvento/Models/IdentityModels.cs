@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -21,9 +22,37 @@ namespace eEvento.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("eEventoDb", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Participante> Participantes { get; set; }
+        public DbSet<Inscricao> Inscricoes { get; set; }
+        public DbSet<Organizador> Organizadores { get; set; }
+        public DbSet<Local> Locais { get; set; }
+        public DbSet<Patrocinador> Patrocinadores { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configurações de relacionamentos muitos para muitos
+            modelBuilder.Entity<Evento>()
+                .HasMany(e => e.Patrocinadores)
+                .WithMany(p => p.Eventos)
+                .Map(m =>
+                {
+                    m.ToTable("EventoPatrocinador");
+                    m.MapLeftKey("EventoId");
+                    m.MapRightKey("PatrocinadorId");
+                });
+
+            /* remove o plural dos models*/
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+        }
+
 
         public static ApplicationDbContext Create()
         {

@@ -168,8 +168,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Inscricao.cs" />
+    <Compile Include="Models\Local.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Organizador.cs" />
+    <Compile Include="Models\Participante.cs" />
+    <Compile Include="Models\Patrocinador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
