@@ -166,6 +166,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ParticipantesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +272,11 @@
     <Content Include="Views\Local\Details.cshtml" />
     <Content Include="Views\Local\Edit.cshtml" />
     <Content Include="Views\Local\Index.cshtml" />
+    <Content Include="Views\Participantes\Create.cshtml" />
+    <Content Include="Views\Participantes\Delete.cshtml" />
+    <Content Include="Views\Participantes\Details.cshtml" />
+    <Content Include="Views\Participantes\Edit.cshtml" />
+    <Content Include="Views\Participantes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
