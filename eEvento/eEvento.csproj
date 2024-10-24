@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202410231353180_AdicionaTabelasSistema.Designer.cs">
       <DependentUpon>202410231353180_AdicionaTabelasSistema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410241332388_AddEventosOrganizador.cs" />
+    <Compile Include="Migrations\202410241332388_AddEventosOrganizador.Designer.cs">
+      <DependentUpon>202410241332388_AddEventosOrganizador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Evento.cs" />
@@ -332,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410231353180_AdicionaTabelasSistema.resx">
       <DependentUpon>202410231353180_AdicionaTabelasSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410241332388_AddEventosOrganizador.resx">
+      <DependentUpon>202410241332388_AddEventosOrganizador.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

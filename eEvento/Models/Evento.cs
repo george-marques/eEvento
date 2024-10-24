@@ -45,7 +45,13 @@ namespace eEvento.Models
         [Required(ErrorMessage = "A capacidade é obrigatório.")]
         public int Capacidade { get; set; }
 
+        [DisplayName("Organizador")]
+        [Column("id_organizador")]
+        [Required(ErrorMessage = "O organizador do evento é obrigatório.")]
+        public int OrganizadorId { get; set; }  // Essa é a chave estrangeira
+
         // Relacionamentos
+        public virtual Organizador Organizador { get; set; }
         public virtual ICollection<Inscricao> Inscricoes { get; set; }
         public virtual ICollection<Patrocinador> Patrocinadores { get; set; }
 

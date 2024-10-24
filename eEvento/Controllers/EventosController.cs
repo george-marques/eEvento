@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -40,6 +41,7 @@ namespace eEvento.Controllers
         public ActionResult Create()
         {
             ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome");
+            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome");
             return View();
         }
 
@@ -48,7 +50,7 @@ namespace eEvento.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventoId,Nome,Descricao,Data,LocalId,Capacidade")] Evento evento)
+        public ActionResult Create([Bind(Include = "EventoId,Nome,Descricao,Data,LocalId,Capacidade,OrganizadorId")] Evento evento)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +60,7 @@ namespace eEvento.Controllers
             }
 
             ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome", evento.LocalId);
+            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome", evento.LocalId);
             return View(evento);
         }
 
@@ -74,6 +77,7 @@ namespace eEvento.Controllers
                 return HttpNotFound();
             }
             ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome", evento.LocalId);
+            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome", evento.LocalId);
             return View(evento);
         }
 
@@ -82,7 +86,7 @@ namespace eEvento.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventoId,Nome,Descricao,Data,LocalId,Capacidade")] Evento evento)
+        public ActionResult Edit([Bind(Include = "EventoId,Nome,Descricao,Data,LocalId,Capacidade,OrganizadorId")] Evento evento)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +95,7 @@ namespace eEvento.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome", evento.LocalId);
+            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome", evento.LocalId);
             return View(evento);
         }
 
