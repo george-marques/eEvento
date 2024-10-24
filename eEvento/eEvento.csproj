@@ -167,7 +167,9 @@
     <Compile Include="Controllers\InscricoesController.cs" />
     <Compile Include="Controllers\LocalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrganizadoresController.cs" />
     <Compile Include="Controllers\ParticipantesController.cs" />
+    <Compile Include="Controllers\PatrocinadoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -283,6 +285,16 @@
     <Content Include="Views\Inscricoes\Details.cshtml" />
     <Content Include="Views\Inscricoes\Edit.cshtml" />
     <Content Include="Views\Inscricoes\Index.cshtml" />
+    <Content Include="Views\Organizadores\Create.cshtml" />
+    <Content Include="Views\Organizadores\Delete.cshtml" />
+    <Content Include="Views\Organizadores\Details.cshtml" />
+    <Content Include="Views\Organizadores\Edit.cshtml" />
+    <Content Include="Views\Organizadores\Index.cshtml" />
+    <Content Include="Views\Patrocinadores\Create.cshtml" />
+    <Content Include="Views\Patrocinadores\Delete.cshtml" />
+    <Content Include="Views\Patrocinadores\Details.cshtml" />
+    <Content Include="Views\Patrocinadores\Edit.cshtml" />
+    <Content Include="Views\Patrocinadores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
