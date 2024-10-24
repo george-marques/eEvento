@@ -164,6 +164,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InscricoesController.cs" />
     <Compile Include="Controllers\LocalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ParticipantesController.cs" />
@@ -277,6 +278,11 @@
     <Content Include="Views\Participantes\Details.cshtml" />
     <Content Include="Views\Participantes\Edit.cshtml" />
     <Content Include="Views\Participantes\Index.cshtml" />
+    <Content Include="Views\Inscricoes\Create.cshtml" />
+    <Content Include="Views\Inscricoes\Delete.cshtml" />
+    <Content Include="Views\Inscricoes\Details.cshtml" />
+    <Content Include="Views\Inscricoes\Edit.cshtml" />
+    <Content Include="Views\Inscricoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
