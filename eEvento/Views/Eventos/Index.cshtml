@@ -1,57 +1,43 @@
 ﻿@model IEnumerable<eEvento.Models.Evento>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Eventos";
 }
 
-<h2>Index</h2>
+<div class="container mt-5">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Local.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Capacidade)
-        </th>
-        <th></th>
-    </tr>
+    <div class="text-right mb-3">
+        @Html.ActionLink("Novo Evento", "Create", null, new { @class = "btn btn-success" })
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Local.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Capacidade)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventoId })
-        </td>
-    </tr>
-}
-
-</table>
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card border-secondary">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted"><strong>Local:</strong> @Html.DisplayFor(modelItem => item.Local.Nome)</h6>
+                            <p class="card-text"><strong>Data:</strong>   @Html.DisplayFor(modelItem => item.Data)</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.EventoId }, new { @class = "btn btn-info btn-sm" })
+                            @Html.ActionLink("Editar", "Edit", new { id = item.EventoId }, new { @class = "btn btn-warning btn-sm" })
+                            @Html.ActionLink("Excluir", "Delete", new { id = item.EventoId }, new { @class = "btn btn-danger btn-sm" })
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-md-12 text-center">
+                <p>Nenhum evento encontrado. Por favor, crie um novo evento.</p>
+            </div>
+        }
+    </div>
+</div>

@@ -43,8 +43,9 @@ namespace eEvento.Controllers
         // GET: Eventos/Create
         public ActionResult Create()
         {
-            ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome");
-            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome");
+            ViewBag.Locais = db.Locais.ToList();
+            ViewBag.Organizadores = db.Organizadores.ToList();
+
             return View();
         }
 
@@ -62,8 +63,9 @@ namespace eEvento.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome", evento.LocalId);
-            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome", evento.LocalId);
+            ViewBag.Locais = db.Locais.ToList();
+            ViewBag.Organizadores = db.Organizadores.ToList();
+          
             return View(evento);
         }
 
@@ -79,8 +81,10 @@ namespace eEvento.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome", evento.LocalId);
-            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome", evento.LocalId);
+
+            ViewBag.Locais = db.Locais.ToList();
+            ViewBag.Organizadores = db.Organizadores.ToList();
+            
             return View(evento);
         }
 
@@ -97,8 +101,10 @@ namespace eEvento.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.LocalId = new SelectList(db.Locais, "LocalId", "Nome", evento.LocalId);
-            ViewBag.OrganizadorId = new SelectList(db.Organizadores, "OrganizadorId", "Nome", evento.LocalId);
+
+            ViewBag.Locais = db.Locais.ToList();
+            ViewBag.Organizadores = db.Organizadores.ToList();
+
             return View(evento);
         }
 

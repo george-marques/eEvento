@@ -94,11 +94,11 @@ C:\Users\George\source\repos\A1\eEvento\bin\pt-br\Microsoft.AspNet.Identity.Core
 C:\Users\George\source\repos\A1\eEvento\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\George\source\repos\A1\eEvento\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.AssemblyReference.cache
+C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.InitialCreate.resources
+C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.AdicionaTabelasSistema.resources
+C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.AddEventosOrganizador.resources
+C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.GenerateResource.cache
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.CoreCompileInputs.cache
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.Up2Date
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.dll
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.pdb
-C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.InitialCreate.resources
-C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.GenerateResource.cache
-C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.AdicionaTabelasSistema.resources
-C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.AddEventosOrganizador.resources
