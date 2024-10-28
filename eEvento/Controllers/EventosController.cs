@@ -11,10 +11,12 @@ using eEvento.Models;
 
 namespace eEvento.Controllers
 {
+    [Authorize]
     public class EventosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [AllowAnonymous]
         // GET: Eventos
         public ActionResult Index()
         {
