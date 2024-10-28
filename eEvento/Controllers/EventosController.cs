@@ -11,6 +11,7 @@ using eEvento.Models;
 
 namespace eEvento.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class EventosController : Controller
     {

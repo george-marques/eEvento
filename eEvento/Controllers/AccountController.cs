@@ -163,7 +163,7 @@ namespace eEvento.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirme sua conta", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Eventos");
                 }
                 AddErrors(result);
             }
@@ -392,7 +392,7 @@ namespace eEvento.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Eventos");
         }
 
         //
@@ -449,7 +449,7 @@ namespace eEvento.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Eventos");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
