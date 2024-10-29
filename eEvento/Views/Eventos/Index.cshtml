@@ -4,10 +4,12 @@
     ViewBag.Title = "Eventos";
 }
 
-<div class="container mt-5">
-
-    <div class="text-right mb-3">
-        @Html.ActionLink("Novo Evento", "Create", null, new { @class = "btn btn-success" })
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">@ViewBag.Title</h2>
+        <a href="@Url.Action("Create")" class="btn btn-success">
+            <i class="bi bi-plus-circle me-1"></i> Novo Evento
+        </a>
     </div>
 
     <div class="row">
@@ -25,9 +27,15 @@
                             <p class="card-text"><strong>Data:</strong>   @Html.DisplayFor(modelItem => item.Data)</p>
                         </div>
                         <div class="card-footer text-muted">
-                            @Html.ActionLink("Detalhes", "Details", new { id = item.EventoId }, new { @class = "btn btn-info btn-sm" })
-                            @Html.ActionLink("Editar", "Edit", new { id = item.EventoId }, new { @class = "btn btn-warning btn-sm" })
-                            @Html.ActionLink("Excluir", "Delete", new { id = item.EventoId }, new { @class = "btn btn-danger btn-sm" })
+                            <a href="@Url.Action("Edit", new { id = item.EventoId })" class="btn btn-warning btn-sm me-1">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                            <a href="@Url.Action("Details", new { id = item.EventoId })" class="btn btn-info btn-sm me-1">
+                                <i class="bi bi-info-circle"></i> Detalhes
+                            </a>
+                            <a href="@Url.Action("Delete", new { id = item.EventoId })" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i> Excluir
+                            </a>
                         </div>
                     </div>
                 </div>
