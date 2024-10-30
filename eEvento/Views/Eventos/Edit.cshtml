@@ -4,79 +4,83 @@
     ViewBag.Title = "Editar Evento";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-primary">@ViewBag.Title</h2>
-    </div>
-
+<div class="container mt-5">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <div class="row">
-            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">@ViewBag.Title</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h5>Detalhes do Evento</h5>
+                <!-- Detalhes do Evento -->
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5>Detalhes do Evento</h5>
+                        </div>
+                        <div class="card-body">
+                            @Html.HiddenFor(model => model.EventoId)
+
+                            <div class="form-group">
+                                <strong>@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })</strong>
+                                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                <strong>@Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label" })</strong>
+                                @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+
+                            <div class="form-group">
+                                <strong>@Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label" })</strong>
+                                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        @Html.HiddenFor(model => model.EventoId)
+                </div>
 
-                        <div class="form-group">
-                            <strong>@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })</strong>
-                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                <!-- Mais Informações -->
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5>Mais Informações</h5>
                         </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <strong>@Html.LabelFor(model => model.LocalId, "Local", htmlAttributes: new { @class = "control-label" })</strong>
+                                @Html.DropDownList("LocalId", new SelectList(ViewBag.Locais, "LocalId", "Nome", Model.LocalId), "Selecione um local", htmlAttributes: new { @class = "form-control" })
+                            </div>
 
-                        <div class="form-group">
-                            <strong>@Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label" })</strong>
-                            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
+                            <div class="form-group">
+                                <strong>@Html.LabelFor(model => model.Capacidade, htmlAttributes: new { @class = "control-label" })</strong>
+                                @Html.EditorFor(model => model.Capacidade, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
 
-                        <div class="form-group">
-                            <strong>@Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label" })</strong>
-                            @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
+                            <div class="form-group">
+                                <strong>@Html.LabelFor(model => model.OrganizadorId, "Organizador", htmlAttributes: new { @class = "control-label" })</strong>
+                                @Html.DropDownList("OrganizadorId", new SelectList(ViewBag.Organizadores, "OrganizadorId", "Nome", Model.OrganizadorId), "Selecione um organizador", htmlAttributes: new { @class = "form-control" })
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h5>Mais Informações</h5>
-                    </div>
-                    <div class="card-body">
-
-                        <div class="form-group">
-                            <strong>@Html.LabelFor(model => model.LocalId, "Local", htmlAttributes: new { @class = "control-label" })</strong>
-                            @Html.DropDownList("LocalId", new SelectList(ViewBag.Locais, "LocalId", "Nome", Model.LocalId), "Selecione um local", htmlAttributes: new { @class = "form-control" })
-                        </div>
-
-                        <div class="form-group">
-                            <strong>@Html.LabelFor(model => model.Capacidade, htmlAttributes: new { @class = "control-label" })</strong>
-                            @Html.EditorFor(model => model.Capacidade, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-
-                        <div class="form-group">
-                            <strong>@Html.LabelFor(model => model.OrganizadorId, "Organizador", htmlAttributes: new { @class = "control-label" })</strong>
-                            @Html.DropDownList("OrganizadorId", new SelectList(ViewBag.Organizadores, "OrganizadorId", "Nome", Model.OrganizadorId), "Selecione um organizador", htmlAttributes: new { @class = "form-control" })
-                        </div>
-
-                    </div>
-                </div>
+            <!-- Botões de Ação -->
+            <div class="d-flex justify-content-end mt-4">
+                <a href="@Url.Action("Index")" class="btn btn-secondary me-2">
+                    <i class="bi bi-arrow-left-circle"></i> Voltar
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-save"></i> Salvar
+                </button>
             </div>
         </div>
-
-        <div class="d-flex justify-content-end mt-4">
-            <a href="@Url.Action("Index")" class="btn btn-secondary me-2">
-                <i class="bi bi-arrow-left-circle"></i> Voltar
-            </a>
-            <button type="submit" class="btn btn-success">
-                <i class="bi bi-save"></i> Salvar
-            </button>
-        </div>
+    </div>
     }
 </div>
 

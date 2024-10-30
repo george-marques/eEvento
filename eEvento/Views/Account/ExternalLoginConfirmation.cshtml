@@ -2,36 +2,40 @@
 @{
     ViewBag.Title = "Registrar";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>Associe a sua conta @ViewBag.LoginProvider.</h3>
 
-    @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
-    {
-        @Html.AntiForgeryToken()
+<div class="container-fluid d-flex align-items-center justify-content-center">
+    <main class="card shadow-lg p-4" style="width: 100%; max-width: 450px; border-radius: 10px;">
+        <div class="card-body text-center">
+            <h2 class="text-primary mb-3">@ViewBag.Title</h2>
+            <h3>Associe a sua conta @ViewBag.LoginProvider</h3>
 
-        <h4>Formulário de associação</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <p class="text-info">
-            Você se autenticou com êxito com <strong>@ViewBag.LoginProvider</strong>.
-            Insira um nome de usuário para este site abaixo e clique no botão Registrar para concluir
-            o logon.
-        </p>
-        <div class="row">
-            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-            </div>
+            @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <h4 class="mt-4">Formulário de associação</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <p class="text-info">
+                    Você se autenticou com êxito com <strong>@ViewBag.LoginProvider</strong>.
+                    Insira um nome de usuário para este site abaixo e clique no botão Registrar para concluir
+                    o login.
+                </p>
+
+                <!-- Campo de Email -->
+                <div class="mb-3 text-center">
+                    @Html.LabelFor(m => m.Email, new { @class = "form-label fw-bold" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-lg mx-auto", style = "max-width: 100%;", placeholder = "Seu email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                </div>
+            }
         </div>
-        <div class="row">
-            <div class="offset-md-2 col-md-10">
-                <input type="submit" class="btn btn-outline-dark" value="Registrar" />
-            </div>
-        </div>
-    }
-</main>
+    </main>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
