@@ -45,6 +45,7 @@ namespace eEvento.Controllers
         {
             ViewBag.Locais = db.Locais.ToList();
             ViewBag.Organizadores = db.Organizadores.ToList();
+            ViewBag.Patrocinadores = db.Patrocinadores.ToList(); // Carrega os patrocinadores e armazena no ViewBag
 
             return View();
         }
@@ -54,10 +55,25 @@ namespace eEvento.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventoId,Nome,Descricao,Data,LocalId,Capacidade,OrganizadorId")] Evento evento)
+        public ActionResult Create([Bind(Include = "EventoId,Nome,Descricao,Data,LocalId,Capacidade,OrganizadorId")] Evento evento, int[] SelectedPatrocinadores)
         {
             if (ModelState.IsValid)
             {
+                // Adicionar patrocinadores selecionados ao evento
+                evento.Patrocinadores = new List<Patrocinador>();
+                if (SelectedPatrocinadores != null)
+                {
+                    foreach (var patrocinadorId in SelectedPatrocinadores)
+                    {
+                        var patrocinador = db.Patrocinadores.Find(patrocinadorId);
+                        if (patrocinador != null)
+                        {
+                            evento.Patrocinadores.Add(patrocinador);
+                        }
+                    }
+
+                }
+
                 db.Eventos.Add(evento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -65,7 +81,8 @@ namespace eEvento.Controllers
 
             ViewBag.Locais = db.Locais.ToList();
             ViewBag.Organizadores = db.Organizadores.ToList();
-          
+            ViewBag.Patrocinadores = db.Patrocinadores.ToList(); // Caso haja erro de validação
+
             return View(evento);
         }
 
@@ -84,7 +101,7 @@ namespace eEvento.Controllers
 
             ViewBag.Locais = db.Locais.ToList();
             ViewBag.Organizadores = db.Organizadores.ToList();
-            
+
             return View(evento);
         }
 

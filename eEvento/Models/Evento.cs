@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.ComponentModel;
+using System.Web.Mvc;
 
 namespace eEvento.Models
 {
@@ -54,6 +55,13 @@ namespace eEvento.Models
         public virtual Organizador Organizador { get; set; }
         public virtual ICollection<Inscricao> Inscricoes { get; set; }
         public virtual ICollection<Patrocinador> Patrocinadores { get; set; }
+
+        // Lista de patrocinadores selecionados
+        public List<int> PatrocinadorIds { get; set; }
+
+        // Lista de patrocinadores disponíveis para seleção
+        public List<Patrocinador> PatrocinadoresDisponiveis { get; set; } = new List<Patrocinador>();
+
 
         // Validações
         public bool ValidarCapacidade()

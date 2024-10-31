@@ -1,4 +1,5 @@
-﻿@model eEvento.Models.Evento
+﻿@using eEvento.Models
+@model eEvento.Models.Evento
 
 @{
     ViewBag.Title = "Novo Evento";
@@ -14,61 +15,80 @@
                 <h4 class="mb-0">@ViewBag.Title</h4>
             </div>
             <div class="card-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                 <div class="row">
-                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-                    <!-- Detalhes do Evento -->
                     <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <h5>Detalhes do Evento</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <strong>@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })</strong>
-                                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome do Evento" } })
-                                </div>
-
-                                <div class="form-group">
-                                    <strong>@Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label" })</strong>
-                                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", placeholder = "Descrição do Evento" } })
-                                </div>
-
-                                <div class="form-group">
-                                    <strong>@Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label" })</strong>
-                                    @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome do Evento" } })
+                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <!-- Mais Informações -->
                     <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <h5>Mais Informações</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <strong>@Html.LabelFor(model => model.LocalId, "Local", htmlAttributes: new { @class = "control-label" })</strong>
-                                    @Html.DropDownList("LocalId", new SelectList(ViewBag.Locais, "LocalId", "Nome"), "Selecione um local", htmlAttributes: new { @class = "form-control" })
-                                </div>
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.Capacidade, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.EditorFor(model => model.Capacidade, new { htmlAttributes = new { @class = "form-control", placeholder = "Capacidade do Evento" } })
+                            @Html.ValidationMessageFor(model => model.Capacidade, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-                                <div class="form-group">
-                                    <strong>@Html.LabelFor(model => model.Capacidade, htmlAttributes: new { @class = "control-label" })</strong>
-                                    @Html.EditorFor(model => model.Capacidade, new { htmlAttributes = new { @class = "form-control", placeholder = "Capacidade do Evento" } })
-                                </div>
+                </div>
 
-                                <div class="form-group">
-                                    <strong>@Html.LabelFor(model => model.OrganizadorId, "Organizador", htmlAttributes: new { @class = "control-label" })</strong>
-                                    @Html.DropDownList("OrganizadorId", new SelectList(ViewBag.Organizadores, "OrganizadorId", "Nome"), "Selecione um organizador", htmlAttributes: new { @class = "form-control" })
-                                </div>
-                            </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
+                            @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.LocalId, "Local", htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.DropDownList("LocalId", new SelectList(ViewBag.Locais, "LocalId", "Nome"), "Selecione um local", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.LocalId, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
 
-                <!-- Botões de Ação -->
+                <div class="row mt-3">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.TextAreaFor(model => model.Descricao, new { @class = "form-control", placeholder = "Descrição do Evento", rows = 2 }) <!-- Adicionando o atributo rows para definir a altura do textarea -->
+                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>@Html.LabelFor(model => model.OrganizadorId, "Organizador", htmlAttributes: new { @class = "control-label" })</strong>
+                            @Html.DropDownList("OrganizadorId", new SelectList(ViewBag.Organizadores, "OrganizadorId", "Nome"), "Selecione um organizador", htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.OrganizadorId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label><strong>Patrocinadores</strong></label>
+                        <div class="d-flex flex-wrap">
+                            @foreach (var patrocinador in ViewBag.Patrocinadores as List<Patrocinador>)
+                            {
+                                <div class="form-check me-3">
+                                    <input type="checkbox" name="SelectedPatrocinadores" value="@patrocinador.PatrocinadorId" class="form-check-input" />
+                                    <label class="form-check-label">@patrocinador.Nome</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
                 <div class="d-flex justify-content-end mt-4">
                     <a href="@Url.Action("Index")" class="btn btn-secondary me-2">
                         <i class="bi bi-arrow-left-circle"></i> Voltar
