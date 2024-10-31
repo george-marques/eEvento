@@ -26,7 +26,7 @@ namespace eEvento.Models
         [DisplayName("CPF")]
         [Column("cpf")]
         [Required(ErrorMessage = "O CPF é obrigatório.")]
-        [StringLength(11, ErrorMessage = "O CPF deve ter 11 caracteres.")]
+        [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "O CPF deve estar no formato 999.999.999-99.")]
         public string CPF { get; set; }
 
         // Relacionamento

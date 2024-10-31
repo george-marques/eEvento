@@ -18,10 +18,16 @@ namespace eEvento.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         [AllowAnonymous]
-        // GET: Eventos
-        public ActionResult Index()
+
+        public ActionResult Index(string searchTerm)
         {
-            var eventos = db.Eventos.Include(e => e.Local);
+            var eventos = db.Eventos.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                eventos = eventos.Where(e => e.Nome.Contains(searchTerm));
+            }
+
             return View(eventos.ToList());
         }
 

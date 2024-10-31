@@ -188,6 +188,14 @@
     <Compile Include="Migrations\202410311410238_AddRelacionamento-N-N.Designer.cs">
       <DependentUpon>202410311410238_AddRelacionamento-N-N.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202410311731361_ValidacaoCpf.cs" />
+    <Compile Include="Migrations\202410311731361_ValidacaoCpf.Designer.cs">
+      <DependentUpon>202410311731361_ValidacaoCpf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410311743257_ValidacaoContatos.cs" />
+    <Compile Include="Migrations\202410311743257_ValidacaoContatos.Designer.cs">
+      <DependentUpon>202410311743257_ValidacaoContatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Evento.cs" />
@@ -338,6 +346,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202410311410238_AddRelacionamento-N-N.resx">
       <DependentUpon>202410311410238_AddRelacionamento-N-N.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410311731361_ValidacaoCpf.resx">
+      <DependentUpon>202410311731361_ValidacaoCpf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410311743257_ValidacaoContatos.resx">
+      <DependentUpon>202410311743257_ValidacaoContatos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

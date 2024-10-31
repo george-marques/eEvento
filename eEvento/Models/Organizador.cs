@@ -23,7 +23,7 @@ namespace eEvento.Models
         [DisplayName("Contato")]
         [Column("contato")]
         [Required(ErrorMessage = "O contato é obrigatório.")]
-        [StringLength(200, ErrorMessage = "O contato deve ter no máximo 200 caracteres.")]
+        [RegularExpression(@"^\(\d{2}\)\d{5}-\d{4}$", ErrorMessage = "O Contato deve estar no formato (99)99999-9999.")]
         public string Contato { get; set; }
 
         // Relacionamento

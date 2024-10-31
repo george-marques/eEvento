@@ -103,3 +103,5 @@ C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.CoreCompileInpu
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.csproj.Up2Date
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.dll
 C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.pdb
+C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.ValidacaoCpf.resources
+C:\Users\George\source\repos\A1\eEvento\obj\Debug\eEvento.Migrations.ValidacaoContatos.resources

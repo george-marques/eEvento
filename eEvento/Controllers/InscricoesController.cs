@@ -16,10 +16,15 @@ namespace eEvento.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         [AllowAnonymous]
-        // GET: Inscricoes
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm)
         {
-            var inscricoes = db.Inscricoes.Include(i => i.Evento).Include(i => i.Participante);
+            var inscricoes = db.Inscricoes.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                inscricoes = inscricoes.Where(e => e.Participante.Nome.Contains(searchTerm));
+            }
+
             return View(inscricoes.ToList());
         }
 
