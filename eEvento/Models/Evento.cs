@@ -29,7 +29,7 @@ namespace eEvento.Models
 
         [DisplayName("Data do Evento")]
         [Column("data_evento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "A data do evento é obrigatória.")]
         public DateTime Data { get; set; }
 

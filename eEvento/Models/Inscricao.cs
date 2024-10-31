@@ -13,7 +13,7 @@ namespace eEvento.Models
 
         [DisplayName("Data de Inscrição")]
         [Column("data_inscrição")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "A data de inscrição é obrigatória.")]
         public DateTime DataInscricao { get; set; }
 

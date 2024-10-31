@@ -41,8 +41,8 @@ namespace eEvento.Controllers
         // GET: Inscricoes/Create
         public ActionResult Create()
         {
-            ViewBag.EventoId = new SelectList(db.Eventos, "EventoId", "Nome");
-            ViewBag.ParticipanteId = new SelectList(db.Participantes, "ParticipanteId", "Nome");
+            ViewBag.Eventos = db.Eventos.ToList();
+            ViewBag.Participantes = db.Participantes.ToList();
             return View();
         }
 
@@ -60,8 +60,8 @@ namespace eEvento.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EventoId = new SelectList(db.Eventos, "EventoId", "Nome", inscricao.EventoId);
-            ViewBag.ParticipanteId = new SelectList(db.Participantes, "ParticipanteId", "Nome", inscricao.ParticipanteId);
+            ViewBag.Eventos = db.Eventos.ToList();
+            ViewBag.Participantes = db.Participantes.ToList();
             return View(inscricao);
         }
 
@@ -77,8 +77,8 @@ namespace eEvento.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EventoId = new SelectList(db.Eventos, "EventoId", "Nome", inscricao.EventoId);
-            ViewBag.ParticipanteId = new SelectList(db.Participantes, "ParticipanteId", "Nome", inscricao.ParticipanteId);
+            ViewBag.Eventos = db.Eventos.ToList();
+            ViewBag.Participantes = db.Participantes.ToList();
             return View(inscricao);
         }
 
@@ -95,8 +95,8 @@ namespace eEvento.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EventoId = new SelectList(db.Eventos, "EventoId", "Nome", inscricao.EventoId);
-            ViewBag.ParticipanteId = new SelectList(db.Participantes, "ParticipanteId", "Nome", inscricao.ParticipanteId);
+            ViewBag.Eventos = db.Eventos.ToList();
+            ViewBag.Participantes = db.Participantes.ToList();
             return View(inscricao);
         }
 
