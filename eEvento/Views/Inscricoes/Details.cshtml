@@ -1,42 +1,115 @@
 ﻿@model eEvento.Models.Inscricao
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes da Inscrição";
 }
 
-<h2>Details</h2>
+<main aria-labelledby="title" class="container mt-4">
+    <!-- Card Principal -->
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">Detalhes da Inscrição</h4>
+        </div>
 
-<div>
-    <h4>Inscricao</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Evento.Nome)
-        </dt>
+        <div class="card-body">
+            <div class="row">
+                <!-- Card para Dados do Evento -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="card-title mb-0">Dados do Evento</h5>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.Evento.Nome)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Evento.Nome)
+                                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Evento.Nome)
-        </dd>
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.Evento.Data)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Evento.Data)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Participante.Nome)
-        </dt>
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.Evento.Local.Nome)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Evento.Local.Nome)
+                                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Participante.Nome)
-        </dd>
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.Evento.Organizador.Nome)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Evento.Organizador.Nome)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataInscricao)
-        </dt>
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.Evento.Organizador.Contato)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Evento.Organizador.Contato)
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataInscricao)
-        </dd>
+                <!-- Card para Dados do Participante -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="card-title mb-0">Dados do Participante</h5>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row">
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.Participante.Nome)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Participante.Nome)
+                                </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.InscricaoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                                <dt class="col-sm-4 font-weight-bold">Contato</dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Participante.Email)
+                                </dd>
+
+                                <dt class="col-sm-4 font-weight-bold">CPF</dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.Participante.CPF)
+                                </dd>
+
+                                <dt class="col-sm-4 font-weight-bold">
+                                    @Html.DisplayNameFor(model => model.DataInscricao)
+                                </dt>
+                                <dd class="col-sm-8">
+                                    @Html.DisplayFor(model => model.DataInscricao)
+                                </dd>
+                                <br />
+                                <dt class="col-sm-4 font-weight-bold">
+                                    
+                                </dt>
+                                <dd class="col-sm-8">
+                                    
+                                </dd>
+                                <div></div>
+                                <br />
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Botões de Ação -->
+            <div class="text-center mt-4">
+                @Html.ActionLink("Editar", "Edit", new { id = Model.InscricaoId }, new { @class = "btn btn-primary me-2" })
+                @Html.ActionLink("Voltar para a Lista", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+</main>
