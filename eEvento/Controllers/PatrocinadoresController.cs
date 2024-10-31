@@ -15,26 +15,10 @@ namespace eEvento.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [AllowAnonymous]
         // GET: Patrocinadores
         public ActionResult Index()
         {
             return View(db.Patrocinadores.ToList());
-        }
-
-        // GET: Patrocinadores/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Patrocinador patrocinador = db.Patrocinadores.Find(id);
-            if (patrocinador == null)
-            {
-                return HttpNotFound();
-            }
-            return View(patrocinador);
         }
 
         // GET: Patrocinadores/Create

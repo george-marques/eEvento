@@ -15,27 +15,12 @@ namespace eEvento.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [AllowAnonymous]
         // GET: Participantes
         public ActionResult Index()
         {
             return View(db.Participantes.ToList());
         }
 
-        // GET: Participantes/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Participante participante = db.Participantes.Find(id);
-            if (participante == null)
-            {
-                return HttpNotFound();
-            }
-            return View(participante);
-        }
 
         // GET: Participantes/Create
         public ActionResult Create()

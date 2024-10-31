@@ -276,12 +276,10 @@
     <Content Include="Views\Eventos\Index.cshtml" />
     <Content Include="Views\Local\Create.cshtml" />
     <Content Include="Views\Local\Delete.cshtml" />
-    <Content Include="Views\Local\Details.cshtml" />
     <Content Include="Views\Local\Edit.cshtml" />
     <Content Include="Views\Local\Index.cshtml" />
     <Content Include="Views\Participantes\Create.cshtml" />
     <Content Include="Views\Participantes\Delete.cshtml" />
-    <Content Include="Views\Participantes\Details.cshtml" />
     <Content Include="Views\Participantes\Edit.cshtml" />
     <Content Include="Views\Participantes\Index.cshtml" />
     <Content Include="Views\Inscricoes\Create.cshtml" />
@@ -291,12 +289,10 @@
     <Content Include="Views\Inscricoes\Index.cshtml" />
     <Content Include="Views\Organizadores\Create.cshtml" />
     <Content Include="Views\Organizadores\Delete.cshtml" />
-    <Content Include="Views\Organizadores\Details.cshtml" />
     <Content Include="Views\Organizadores\Edit.cshtml" />
     <Content Include="Views\Organizadores\Index.cshtml" />
     <Content Include="Views\Patrocinadores\Create.cshtml" />
     <Content Include="Views\Patrocinadores\Delete.cshtml" />
-    <Content Include="Views\Patrocinadores\Details.cshtml" />
     <Content Include="Views\Patrocinadores\Edit.cshtml" />
     <Content Include="Views\Patrocinadores\Index.cshtml" />
   </ItemGroup>

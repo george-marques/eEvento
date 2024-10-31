@@ -15,26 +15,10 @@ namespace eEvento.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [AllowAnonymous]
         // GET: Organizadores
         public ActionResult Index()
         {
             return View(db.Organizadores.ToList());
-        }
-
-        // GET: Organizadores/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Organizador organizador = db.Organizadores.Find(id);
-            if (organizador == null)
-            {
-                return HttpNotFound();
-            }
-            return View(organizador);
         }
 
         // GET: Organizadores/Create

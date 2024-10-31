@@ -15,27 +15,12 @@ namespace eEvento.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [AllowAnonymous]
         // GET: Local
         public ActionResult Index()
         {
             return View(db.Locais.ToList());
         }
 
-        // GET: Local/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Local local = db.Locais.Find(id);
-            if (local == null)
-            {
-                return HttpNotFound();
-            }
-            return View(local);
-        }
 
         // GET: Local/Create
         public ActionResult Create()
