@@ -53,10 +53,12 @@ Antes de executar o projeto, certifique-se de que você possui o seguinte:
 
    - Localize o arquivo de configuração `web.config` e edite a string de conexão para o seu banco de dados SQL Server.
 
-   ```json
-    <connectionStrings>
-      <add name="eEventoDb" connectionString="Server=SEU_SERVIDOR;Database=SEU_BANCO_DE_DADOS;Trusted_Connection=True;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" />
-    </connectionStrings>
+    ```xml
+   <connectionStrings>
+       <add name="eEventoDb" 
+            connectionString="Server=SEU_SERVIDOR;Database=SEU_BANCO_DE_DADOS;Trusted_Connection=True;MultipleActiveResultSets=true"
+            providerName="System.Data.SqlClient" />
+   </connectionStrings>
     
 5. **Criar o Banco de Dados**
 
