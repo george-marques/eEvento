@@ -2,20 +2,20 @@
 
 ## Entidades
 
-- **Evento
-- **Inscrição
-- **Local
-- **Participante
-- **Organizador
-- **Patrocinador
+- **Evento**: Relaciona-se com o Patrocinador (N:N), Organizador (1:N) e Local (1:N)
+- **Inscrição**: Relaciona-se com o Evento (1:N) e Participante (1:N)
+- **Local**
+- **Participante**
+- **Organizador**
+- **Patrocinador**
 
 ## Validações
-- **Campos obrigatórios
-- **Limite de caracteres
-- **Validação de Email,CPF e Contato
-- **Validação de Range
-- **Validação de Autenticação
-- **Autorizações
+- **Campos obrigatórios**
+- **Limite de caracteres**
+- **Validação de Email,CPF e Contato**
+- **Validação de Range**
+- **Validação de Autenticação**
+- **Autorizações**
 
 ## Tecnologias Utilizadas
 
@@ -54,9 +54,10 @@ Antes de executar o projeto, certifique-se de que você possui o seguinte:
    - Localize o arquivo de configuração `web.config` e edite a string de conexão para o seu banco de dados SQL Server.
 
    ```json
-   "ConnectionStrings": {
-       "DefaultConnection": "Server=SEU_SERVIDOR;Database=SEU_BANCO_DE_DADOS;Trusted_Connection=True;MultipleActiveResultSets=true"
-   } 
+    <connectionStrings>
+      <add name="eEventoDb" connectionString="Server=SEU_SERVIDOR;Database=SEU_BANCO_DE_DADOS;Trusted_Connection=True;MultipleActiveResultSets=true" providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    
 5. **Criar o Banco de Dados**
 
    Execute as migrações para criar o banco de dados e suas tabelas. Abra o Package Manager Console e execute:
